@@ -4,9 +4,13 @@ LABEL Description="This is a base image, which allows connecting Jenkins agents 
 
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 
+FROM java:7
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+
 ENTRYPOINT ["jenkins-slave"]
 FROM gcc:4.9
-COPY . /usr/src/myappf
-WORKDIR /usr/src/myappf
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
 RUN g++ -std=c++11 -o myapplication main.cpp
 CMD ["./myapplication"]
