@@ -1,3 +1,5 @@
-sut:
+version: '3.2'
+services:
+  sut:
     build: .
-    command: echo "docker cloud demo test"
+    command: echo "test this project "
